@@ -1,0 +1,1270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rp:ObjectSet xmlns:rp="http://www.soasta.com/services/repository">
+  <Object type="messageclip" schemaVersion="10013" VCSUid="7e7b25c46999cc0ad193b9748b63032f" name="SOAP: Calculator v0.02" path="/">
+    <Body>
+      <MessageClip>
+        <Targets>
+          <Target id="0" location="Calculator" name="Calculator: SOAP (Calculator)" ref="0" scope="local" />
+          <Target id="1" location="Yahoo" name="Yahoo (Yahoo)" ref="1" scope="local" />
+        </Targets>
+        <UserProperties>
+          <UserProperty name="random num 1" sendToAnalytics="false">
+            <GeneratedValue>
+              <RandomInteger max="100" min="1" />
+            </GeneratedValue>
+            <Description />
+          </UserProperty>
+          <UserProperty name="random num 2" sendToAnalytics="false">
+            <GeneratedValue>
+              <RandomInteger max="100" min="1" />
+            </GeneratedValue>
+            <Description />
+          </UserProperty>
+          <UserProperty name="returned val 1" sendToAnalytics="false">
+            <Value type="Text" />
+            <Description />
+          </UserProperty>
+          <UserProperty name="res1" sendToAnalytics="false">
+            <Value type="Text" />
+            <Description />
+          </UserProperty>
+          <UserProperty name="res2" sendToAnalytics="false">
+            <Value type="Text" />
+            <Description />
+          </UserProperty>
+          <UserProperty name="res3" sendToAnalytics="false">
+            <Value type="Text" />
+            <Description />
+          </UserProperty>
+          <UserProperty name="Repeat" sendToAnalytics="false">
+            <Value type="Text">2</Value>
+            <Description />
+          </UserProperty>
+          <UserProperty name="ForEachData" sendToAnalytics="false">
+            <SeedData>
+              <Source ref="2" />
+              <Distribution columnCount="-1" eofAction="Wrap" rowRepresentation="Struct" serverAllocation="SingleSharedSlice" />
+            </SeedData>
+            <Description />
+          </UserProperty>
+        </UserProperties>
+        <Options dynamicResourceCache="enabled" interItemDelay="0" />
+      </MessageClip>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>sequenced</Value>
+      </Attribute>
+    </Attributes>
+    <References>
+      <Reference id="1293070" internalID="2" name="ForEachTestData" path="/" type="seeddata" />
+      <Reference id="1292252" internalID="1" name="Yahoo" path="/" type="target" />
+      <Reference id="1292988" internalID="0" name="Calculator: SOAP" path="/" type="target" />
+    </References>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Group1" path="/SOAP: Calculator v0.02" parentType="messageclip" uid="8db7b091-40d1-432d-ab4c-90edb7e4bc5e">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <GroupStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>group</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value>&lt;Repeat repeatType="cc" timing="s">&lt;Count>&lt;Const>2&lt;/Const>&lt;/Count>&lt;/Repeat></Value>
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Add" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="9abff352-b27c-43de-b7be-dd47483ba3df">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Add" path="/SOAP: Calculator v0.02//Group1/Add" parentType="clipelement" uid="09a1af29-8191-42ee-b440-c3d34413e55d">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <PropSets>
+            <PropSet name="returned val 1">
+              <Ref autoCreate="none" path="returned val 1" pathType="clip" type="user" />
+              <Src>
+                <Body endMarker="." responseBodyType="text" startMarker="Result xsi:type='xsd:float'>" />
+              </Src>
+            </PropSet>
+          </PropSets>
+          <Output>
+            <Message>
+              <Field path="//*[local-name()='addResponse']/*[local-name()='Result']">
+                <DefaultValue>{%% prop : parent-clip : /res2 %%}</DefaultValue>
+              </Field>
+            </Message>
+          </Output>
+          <Input>
+            <Message>
+              <Field path="//*[local-name()='add']/*[local-name()='x']">
+                <DefaultValue>{%% random : decimaldigits, 3 %%}</DefaultValue>
+              </Field>
+              <Field path="//*[local-name()='add']/*[local-name()='y']">
+                <DefaultValue>20</DefaultValue>
+              </Field>
+            </Message>
+          </Input>
+          <Content>
+            <SOAP>
+              <Envelope>&lt;soapenv:Envelope xmlns:ns="http://www.parasoft.com/wsdl/calculator/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">&lt;soapenv:Body>
+              &lt;ns:add>&lt;ns:x>{%% random : decimaldigits, 3 %%}&lt;/ns:x>&lt;ns:y>20&lt;/ns:y>&lt;/ns:add>
+            &lt;/soapenv:Body>&lt;/soapenv:Envelope></Envelope>
+            </SOAP>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>add</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>ICalculator</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Delay1" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="f31e75e7-40ac-488c-81d3-b894ad31d6d0">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Delay>
+          <Options delayLength="0" />
+        </Delay>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>delay</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Divide" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="787a04db-4703-43e6-8a84-be21d400c2af">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>2</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="divide" path="/SOAP: Calculator v0.02//Group1/Divide" parentType="clipelement" uid="a197949e-7278-49fc-8345-abc87d5cfa68">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <PropSets>
+            <PropSet name="res2">
+              <Ref autoCreate="none" path="res2" pathType="clip" type="user" />
+              <Src>
+                <Body endMarker="&lt;" startMarker="Result xsi:type='xsd:float'>" />
+              </Src>
+            </PropSet>
+          </PropSets>
+          <Output>
+            <Message>
+              <Field path="//*[local-name()='divideResponse']/*[local-name()='Result']">
+                <DefaultValue>[user:res2]</DefaultValue>
+              </Field>
+            </Message>
+          </Output>
+          <Input xmlns="http://www.soasta.com/services/repository">
+            
+
+            <Message>
+              
+
+              <Field path="//*[local-name()='divide']/*[local-name()='numerator']">
+                
+
+                <DefaultValue>{%% prop : parent-clip : /returned val 1 %%}</DefaultValue>
+              
+
+              </Field>
+              
+
+              <Field path="//*[local-name()='divide']/*[local-name()='denominator']">
+                
+
+                <DefaultValue>2</DefaultValue>
+              
+
+              </Field>
+            
+
+            </Message>
+          
+
+          </Input>
+          <Content>
+            <SOAP>
+              <Envelope>&lt;soapenv:Envelope xmlns:ns="http://www.parasoft.com/wsdl/calculator/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">&lt;soapenv:Body>
+              &lt;ns:divide>&lt;ns:numerator>{%% prop : parent-clip : /returned val 1 %%}&lt;/ns:numerator>&lt;ns:denominator>2&lt;/ns:denominator>&lt;/ns:divide>
+            &lt;/soapenv:Body>&lt;/soapenv:Envelope></Envelope>
+            </SOAP>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>divide</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>ICalculator</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Delay2" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="f0cb70d4-3d91-4a7c-971c-e1c5a5109e33">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Delay>
+          <Options delayLength="0" />
+        </Delay>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>delay</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>3</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Multiply" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="b50c8deb-2b94-4dd8-b1f0-e02916060fef">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>4</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="multiply" path="/SOAP: Calculator v0.02//Group1/Multiply" parentType="clipelement" uid="6867ab40-ed5a-4b99-865e-6538c7750929">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <PropSets>
+            <PropSet name="Result">
+              <Ref autoCreate="none" path="/res3" pathType="parent-clip" type="user" />
+              <Src>
+                <Body xpath="//*[local-name()='multiplyResponse']/*[local-name()='Result']" />
+              </Src>
+            </PropSet>
+          </PropSets>
+          <Output>
+            <Message>
+              <Field path="//*[local-name()='multiplyResponse']/*[local-name()='Result']">
+                <DefaultValue>[user:/res3]</DefaultValue>
+              </Field>
+            </Message>
+          </Output>
+          <Input>
+            <Message>
+              <Field path="//*[local-name()='multiply']/*[local-name()='x']">
+                <DefaultValue>{%% prop : parent-clip : /res2 %%}</DefaultValue>
+              </Field>
+              <Field path="//*[local-name()='multiply']/*[local-name()='y']">
+                <DefaultValue>2</DefaultValue>
+              </Field>
+            </Message>
+          </Input>
+          <Content>
+            <SOAP>
+              <Envelope>&lt;soapenv:Envelope xmlns:ns="http://www.parasoft.com/wsdl/calculator/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">&lt;soapenv:Body>
+              &lt;ns:multiply>&lt;ns:x>{%% prop : parent-clip : /res2 %%}&lt;/ns:x>&lt;ns:y>2&lt;/ns:y>&lt;/ns:multiply>
+            &lt;/soapenv:Body>&lt;/soapenv:Envelope></Envelope>
+            </SOAP>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>multiply</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>ICalculator</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Delay3" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="7200b0ba-0f91-4921-9921-8903834e34ae">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Delay>
+          <Options delayLength="0" />
+        </Delay>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>delay</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>5</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Subtract" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="13c3e8d3-f376-4f70-b786-bb3ede304304">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>6</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="subtract" path="/SOAP: Calculator v0.02//Group1/Subtract" parentType="clipelement" uid="6219d69d-ee33-4422-8a19-a03bee475f9f">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <Output>
+            <Message />
+          </Output>
+          <Input>
+            <Message>
+              <Field path="//*[local-name()='subtract']/*[local-name()='x']">
+                <DefaultValue>{%% prop : parent-clip : /res3 %%}</DefaultValue>
+              </Field>
+              <Field path="//*[local-name()='subtract']/*[local-name()='y']">
+                <DefaultValue>10</DefaultValue>
+              </Field>
+            </Message>
+          </Input>
+          <Content>
+            <SOAP>
+              <Envelope>&lt;soapenv:Envelope xmlns:ns="http://www.parasoft.com/wsdl/calculator/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">&lt;soapenv:Body>
+              &lt;ns:subtract>&lt;ns:x>{%% prop : parent-clip : /res3 %%}&lt;/ns:x>&lt;ns:y>10&lt;/ns:y>&lt;/ns:subtract>
+            &lt;/soapenv:Body>&lt;/soapenv:Envelope></Envelope>
+            </SOAP>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>subtract</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>ICalculator</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Delay4" path="/SOAP: Calculator v0.02//Group1" parentType="clipelement" uid="82bc96a3-0183-45b4-a8a4-0bf93eb805af">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Delay>
+          <Options delayLength="0" />
+        </Delay>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>delay</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>7</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Group2" path="/SOAP: Calculator v0.02" parentType="messageclip" uid="c8ec2842-ea11-4133-9e3a-436706d765eb">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <GroupStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>group</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value>&lt;Repeat repeatType="cp" timing="s">&lt;Count>&lt;Ref path="/Repeat" pathType="parent-clip" type="user"/>&lt;/Count>&lt;/Repeat></Value>
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="SearchYahoo" path="/SOAP: Calculator v0.02//Group2" parentType="clipelement" uid="90782da5-4770-4692-98b6-58521cc41ea9">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Searchyahoo" path="/SOAP: Calculator v0.02//Group2/SearchYahoo" parentType="clipelement" uid="6559ce0d-8edf-43b0-a473-802cf5d556a6">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <Content>
+            <REST verb="GET">
+              <Location>/search?p={%% random : alphanumeric, 12 %%}&amp;fr=yfp-t-913</Location>
+              <Params />
+            </REST>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>get</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>RestGetBinding</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Delay5" path="/SOAP: Calculator v0.02//Group2" parentType="clipelement" uid="49128899-78a9-4bdd-b778-95532ffdba34">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Delay>
+          <Options delayLength="0" />
+        </Delay>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>delay</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Search2" path="/SOAP: Calculator v0.02//Group2" parentType="clipelement" uid="e2059db8-b21f-43c2-ad2d-8e24b105f313">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>2</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Searchyahoo" path="/SOAP: Calculator v0.02//Group2/Search2" parentType="clipelement" uid="5577571e-7f2b-40c9-b467-2eae816d7c6a">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <Content>
+            <REST verb="GET">
+              <Location>/search?p={%% random : hexdigits, 6 %%}&amp;fr=yfp-t-913</Location>
+              <Params />
+            </REST>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>get</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>RestGetBinding</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Group3" path="/SOAP: Calculator v0.02" parentType="messageclip" uid="1abef142-15dc-498b-9e89-6ccec1608bb1">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <GroupStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>group</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>2</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value>&lt;Repeat repeatType="fp" timing="s">&lt;Count>&lt;Ref path="/Repeat" pathType="parent-clip" type="user"/>&lt;/Count>&lt;/Repeat></Value>
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="SearchYahoo4" path="/SOAP: Calculator v0.02//Group3" parentType="clipelement" uid="288dce4f-2441-42bf-9381-07df1bab9639">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Searchyahoo" path="/SOAP: Calculator v0.02//Group3/SearchYahoo4" parentType="clipelement" uid="b652927a-39c0-498e-aaa6-a73343506ac3">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <Content>
+            <REST verb="GET">
+              <Location>/search?p={%% random : alphanumeric, 12 %%}&amp;fr=yfp-t-913</Location>
+              <Params />
+            </REST>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>get</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>RestGetBinding</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Delay5" path="/SOAP: Calculator v0.02//Group3" parentType="clipelement" uid="2c7c67aa-6432-4c40-a823-47caa111e665">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Delay>
+          <Options delayLength="0" />
+        </Delay>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>delay</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Search4" path="/SOAP: Calculator v0.02//Group3" parentType="clipelement" uid="08b0d2f9-d8ac-4612-a812-747cffd11e42">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <TransactionStart />
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>transaction</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>2</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+  <Object type="clipelement" schemaVersion="10013" name="Searchyahoo" path="/SOAP: Calculator v0.02//Group3/Search4" parentType="clipelement" uid="64703e28-49f2-49b4-b909-0fbde9cf677b">
+    <Body>
+      <ClipElement xmlns="http://www.soasta.com/services/repository">
+        <Message>
+          <Content>
+            <REST verb="GET">
+              <Location>/search?p={%% random : hexdigits, 6 %%}&amp;fr=yfp-t-913</Location>
+              <Params />
+            </REST>
+          </Content>
+        </Message>
+      </ClipElement>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>message</Value>
+      </Attribute>
+      <Attribute name="operation">
+        <Value>get</Value>
+      </Attribute>
+      <Attribute name="destinationID">
+        <Value>1</Value>
+      </Attribute>
+      <Attribute name="offset">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="index">
+        <Value>0</Value>
+      </Attribute>
+      <Attribute name="repeatSpec">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="binding">
+        <Value>RestGetBinding</Value>
+      </Attribute>
+      <Attribute name="scope">
+        <Value>private</Value>
+      </Attribute>
+      <Attribute name="responseContentType">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="debugSpec">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+</rp:ObjectSet>
