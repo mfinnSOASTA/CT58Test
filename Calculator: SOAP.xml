@@ -1,0 +1,835 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rp:ObjectSet xmlns:rp="http://www.soasta.com/services/repository">
+  <Object type="target" schemaVersion="10013" VCSUid="afe311d5928699b409310b4cdae6dcae" name="Calculator: SOAP" path="/">
+    <Body>
+      <Target>
+        
+        <ServiceDefinition>
+          
+          <WSDL>
+            
+            <wsdl:definitions name="Calculator" targetNamespace="http://www.parasoft.com/wsdl/calculator/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tme="http://www.themindelectric.com/" xmlns:tns="http://www.parasoft.com/wsdl/calculator/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+                  
+                  
+              
+              <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.parasoft.com/wsdl/calculator/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   
+                      
+                      
+                  
+                  <xsd:element name="add" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="x" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+      
+                            
+                            
+                        
+                        <xsd:element name="y" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="addResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="Result" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="divide" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="numerator" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+      
+                            
+                            
+                        
+                        <xsd:element name="denominator" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="divideResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="Result" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="multiply" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="x" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+      
+                            
+                            
+                        
+                        <xsd:element name="y" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="multiplyResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="Result" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="subtract" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="x" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+      
+                            
+                            
+                        
+                        <xsd:element name="y" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+   
+                      
+                      
+                  
+                  <xsd:element name="subtractResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    
+                        
+                        
+                    
+                    <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+     
+                          
+                          
+                      
+                      <xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      
+                            
+                            
+                        
+                        <xsd:element name="Result" type="xsd:float" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+     
+                          
+                          
+                      
+                      </xsd:sequence>
+    
+                        
+                        
+                    
+                    </xsd:complexType>
+   
+                      
+                      
+                  
+                  </xsd:element>
+  
+                    
+                    
+                
+                </xsd:schema>
+ 
+                  
+                  
+              
+              </wsdl:types>
+ 
+                  
+                  
+              
+              <wsdl:message name="add0In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:add" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="add0Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:addResponse" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="divide1In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:divide" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="divide1Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:divideResponse" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="multiply2In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:multiply" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="multiply2Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:multiplyResponse" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="subtract3In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:subtract" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:message name="subtract3Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:part element="tns:subtractResponse" name="parameters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+ 
+                  
+                  
+              
+              </wsdl:message>
+ 
+                  
+                  
+              
+              <wsdl:portType name="ICalculator" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:operation name="add" parameterOrder="x y" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <wsdl:input message="tns:add0In" name="add0In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+   
+                      
+                      
+                  
+                  <wsdl:output message="tns:add0Out" name="add0Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+  
+                    
+                    
+                
+                </wsdl:operation>
+  
+                    
+                    
+                
+                <wsdl:operation name="divide" parameterOrder="numerator denominator" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <wsdl:input message="tns:divide1In" name="divide1In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+   
+                      
+                      
+                  
+                  <wsdl:output message="tns:divide1Out" name="divide1Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+  
+                    
+                    
+                
+                </wsdl:operation>
+  
+                    
+                    
+                
+                <wsdl:operation name="multiply" parameterOrder="x y" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <wsdl:input message="tns:multiply2In" name="multiply2In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+   
+                      
+                      
+                  
+                  <wsdl:output message="tns:multiply2Out" name="multiply2Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+  
+                    
+                    
+                
+                </wsdl:operation>
+  
+                    
+                    
+                
+                <wsdl:operation name="subtract" parameterOrder="x y" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <wsdl:input message="tns:subtract3In" name="subtract3In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+   
+                      
+                      
+                  
+                  <wsdl:output message="tns:subtract3Out" name="subtract3Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+  
+                    
+                    
+                
+                </wsdl:operation>
+ 
+                  
+                  
+              
+              </wsdl:portType>
+ 
+                  
+                  
+              
+              <wsdl:binding name="ICalculator" type="tns:ICalculator" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+  
+                    
+                    
+                
+                <wsdl:operation name="add" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <soap:operation soapAction="add" style="document" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  <wsdl:input name="add0In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:input>
+   
+                      
+                      
+                  
+                  <wsdl:output name="add0Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:output>
+  
+                    
+                    
+                
+                </wsdl:operation>
+  
+                    
+                    
+                
+                <wsdl:operation name="divide" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <soap:operation soapAction="divide" style="document" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  <wsdl:input name="divide1In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:input>
+   
+                      
+                      
+                  
+                  <wsdl:output name="divide1Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:output>
+  
+                    
+                    
+                
+                </wsdl:operation>
+  
+                    
+                    
+                
+                <wsdl:operation name="multiply" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <soap:operation soapAction="multiply" style="document" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  <wsdl:input name="multiply2In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:input>
+   
+                      
+                      
+                  
+                  <wsdl:output name="multiply2Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:output>
+  
+                    
+                    
+                
+                </wsdl:operation>
+  
+                    
+                    
+                
+                <wsdl:operation name="subtract" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <soap:operation soapAction="subtract" style="document" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  <wsdl:input name="subtract3In" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:input>
+   
+                      
+                      
+                  
+                  <wsdl:output name="subtract3Out" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    
+                        
+                        
+                    
+                    <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+   
+                      
+                      
+                  
+                  </wsdl:output>
+  
+                    
+                    
+                
+                </wsdl:operation>
+ 
+                  
+                  
+              
+              </wsdl:binding>
+ 
+                  
+                  
+              
+              <wsdl:service name="Calculator" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  
+                    
+                    
+                
+                <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">instance of class webtool.soap.examples.calculator.Calculator</wsdl:documentation>
+  
+                    
+                    
+                
+                <wsdl:port binding="tns:ICalculator" name="ICalculator" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+   
+                      
+                      
+                  
+                  <soap:address location="http://ws1.parasoft.com/glue/calculator" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+  
+                    
+                    
+                
+                </wsdl:port>
+ 
+                  
+                  
+              
+              </wsdl:service>
+
+                
+                
+            
+            </wsdl:definitions>
+          
+          </WSDL>
+          
+          <Supplements>
+            
+            <WSDL_URL>http://soaptest.parasoft.com/calculator.wsdl</WSDL_URL>
+            
+            <Authentication />
+            
+            <MessageInject />
+            
+            <ConnectionOptions>
+              
+              <Service maximumConnectionsPerHost="1" name="Calculator" />
+            
+            </ConnectionOptions>
+            
+            <SSLOptions>
+              
+              <Service name="Calculator" sslv2ClientHelloEnabled="false" sslv3Enabled="true" tlsv1Enabled="true" tlsv1_1Enabled="true" tlsv1_2Enabled="true" />
+            
+            </SSLOptions>
+            
+            <DNSOptions>
+              
+              <Service name="Calculator" serverName="" />
+            
+            </DNSOptions>
+            
+            <MessageSupplements />
+            
+            <WSDLSupplements>
+              
+              <Location port="ICalculator" service="Calculator">
+                
+                <UserValue />
+                
+                <OriginalValue>http://ws1.parasoft.com/glue/calculator</OriginalValue>
+              
+              </Location>
+            
+            </WSDLSupplements>
+          
+          </Supplements>
+        
+        </ServiceDefinition>
+      
+      </Target>
+    </Body>
+    <BinaryData />
+    <Description></Description>
+    <Attributes>
+      <Attribute name="type">
+        <Value>service</Value>
+      </Attribute>
+      <Attribute name="longitude">
+        <Value null="true" />
+      </Attribute>
+      <Attribute name="latitude">
+        <Value null="true" />
+      </Attribute>
+    </Attributes>
+  </Object>
+</rp:ObjectSet>
